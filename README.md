@@ -2,6 +2,9 @@
 An upcoming tool for Python code obfuscation.
 The usage will be via a command line interface.
 
+## Already Implemented Features
+- Single file obfuscation (To be improved)
+
 ## Planned Features
 - Multiple modes of obfuscation (single file, with modules, etc.)
 - Single file obfuscation will not change the file extension (e.g. .py -> .py), this way it can be run as a normal Python file.
