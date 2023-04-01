@@ -3,7 +3,7 @@ An upcoming tool for Python code obfuscation.
 The usage will be via a command line interface.
 
 ## Already Implemented Features
-- Single file obfuscation (To be improved)
+- Single file obfuscation (To be improved for different paths, currently limited to 5kb files)
 
 ## Planned Features
 - Multiple modes of obfuscation (single file, with modules, etc.)
