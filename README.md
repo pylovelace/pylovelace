@@ -8,6 +8,8 @@ The usage will be via a command line interface.
 - Obfuscate and compile modules to .so or .pyd files. It will be possible to import and utilize these files as normal Python modules.
 - Variable renaming, String encryption, Control flow, Function renaming
 - Expire after a certain date
+- Affordable license price (one-time payment)
+- Only one license
 
 ## Supported Python Versions
 - Python 3.11 only as of now, as I am currently focusing myself on the latest version of Python.

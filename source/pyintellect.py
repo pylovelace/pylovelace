@@ -1,7 +1,7 @@
 import argparse
 import sys
-
-version = "0.0.1"
+from engine.configuration import *
+from engine.single_mode import SingleMode
 
 
 def _parse_args():
@@ -13,7 +13,7 @@ def _parse_args():
         prog='PyIntellect',
         description='PyIntellect Obfuscation Tool',
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        usage='%(prog)s [options] file',
+        usage='%(prog)s [options]',
         epilog='''\
 More information:
     https://pyintellect.com
@@ -86,14 +86,22 @@ def _parse(initialized_arguments):
     if not initialized_arguments:
         parser.print_help()
 
+    if arguments.obfuscate:
+        if arguments.mode == "1":
+            SingleMode(arguments.obfuscate).generate()
+        elif arguments.mode == "2":
+            raise NotImplementedError("Multi mode is not implemented yet")
+
 
 def main():
     """
     Main function
     :return:
     """
-    print(f"PyIntellect v{version}\n"
-          f"Python v{sys.version.split()[0]}\n")
+    print(
+        f"PyIntellect v{version}\n"
+        f"Python v{sys.version.split()[0]}\n"
+    )
     _parse(sys.argv[1:])
 
 
