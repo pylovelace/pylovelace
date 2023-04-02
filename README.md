@@ -3,7 +3,7 @@ An upcoming tool for Python code obfuscation.
 The usage will be via a command line interface.
 
 ## Already Implemented Features
-- Single file obfuscation (To be improved for different paths, currently limited to 5kb files)
+- Single file obfuscation (currently limited to 5kb files until licenses are implemented)
 
 ## Planned Features
 - Multiple modes of obfuscation (single file, with modules, etc.)
@@ -15,19 +15,19 @@ The usage will be via a command line interface.
 - Only one license
 
 ## Supported Python Versions
-- Python 3.11 only as of now, as I am currently focusing myself on the latest version of Python.
+- Python 3.11 and 3.12 only as of now, as I am currently focusing myself on the latest versions of Python.
 
 I am yet unsure if I will support older versions of Python.
 
 ## Supported Operating Systems
 - Windows 10/11 only as of now.
 
-## Documentation
-Documentation will be available on the [PyIntellect website](https://pyintellect.com). The website is currently under development.
-
 ## Installation
 PyIntellect is not yet available for installation. It will be available for installation once it is released.
 Concept: `pip install pyintellect`
+
+## Documentation
+Documentation will be available on the [PyIntellect website](https://pyintellect.com). The website is currently under development.
 
 ## License
 PyIntellect's use will be put under purchasable licenses. The license will be a one-time payment, and will be valid for all future updates of PyIntellect.
@@ -37,3 +37,7 @@ The price of the license will be determined by the amount of features that are a
 There will be a free version of PyIntellect, but it will be limited to a single mode of obfuscation, and will not be able to obfuscate modules and bigger projects.
 
 PyIntellect is meant for commercial use, and it's core will be closed source. The core will be the part that will be responsible for the obfuscation process, and will be the part that will be licensed.
+
+## Specialities
+- PyIntellect does not utilize exec() or eval() like other obfuscators do.
+- PyIntellect preserves the __name__ attribute.

@@ -1,7 +1,9 @@
 import argparse
+import os
 import sys
 from engine.configuration import *
 from engine.single_mode import SingleMode
+from engine.module_mode import ModuleMode
 
 
 def _parse_args():
@@ -51,7 +53,15 @@ More information:
         action="store",
         choices=["1", "2"],
         default="1",
-        help="Obfuscation modes. 1 - One file, 2 - With modules"
+        help="Obfuscation modes. "
+             "1 - One file, "
+             "2 - Initiation file and all modules get obfuscated and modules get compiled."
+    )
+
+    obfuscation_parser.add_argument(
+        "--module",
+        action="store_true",
+        help="Obfuscate and compile a module"
     )
 
     obfuscation_parser.add_argument(
@@ -87,10 +97,12 @@ def _parse(initialized_arguments):
         parser.print_help()
 
     if arguments.obfuscate:
-        if arguments.mode == "1":
+        if arguments.module:
+            ModuleMode(arguments.obfuscate).generate()
+        elif arguments.mode == "1":
             SingleMode(arguments.obfuscate).generate()
         elif arguments.mode == "2":
-            raise NotImplementedError("Multi mode is not implemented yet")
+            raise NotImplementedError("Multi-mode obfuscation is not implemented yet.")
 
 
 def main():
