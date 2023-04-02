@@ -28,6 +28,7 @@ I am yet unsure if I will support older versions of Python.
 
 ## Supported Operating Systems
 - Windows 10/11 only as of now.
+- Linux soon.
 
 ## Installation
 PyIntellect is not yet available for installation. 
