@@ -1,8 +1,9 @@
 # PyIntellect
-An upcoming tool for Python code obfuscation.
+An upcoming CPythonic Python code obfuscation tool.
 The usage will be via a command line interface.
 
 ## Already Implemented Features
+- CPythonic engine (to be improved)
 - Single file obfuscation (currently limited to 5kb files until licenses are implemented)
 - Module obfuscation (currently limited to 5kb files until licenses are implemented)
 
@@ -16,7 +17,7 @@ The usage will be via a command line interface.
 - Only one license
 
 ## Specialities
-- PyIntellect does not utilize exec() or eval() like other obfuscators do.
+- PyIntellect does not utilize exec(), eval() or lambda like other obfuscators do.
 - PyIntellect preserves the __name\_\_ attribute.
 - PyIntellect obfuscated files have a significant speed boost compared to other obfuscators.
 
