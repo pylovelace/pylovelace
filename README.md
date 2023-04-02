@@ -4,6 +4,7 @@ The usage will be via a command line interface.
 
 ## Already Implemented Features
 - Single file obfuscation (currently limited to 5kb files until licenses are implemented)
+- Module obfuscation (currently limited to 5kb files until licenses are implemented)
 
 ## Planned Features
 - Multiple modes of obfuscation (single file, with modules, etc.)
