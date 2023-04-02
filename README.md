@@ -17,7 +17,7 @@ The usage will be via a command line interface.
 
 ## Specialities
 - PyIntellect does not utilize exec() or eval() like other obfuscators do.
-- PyIntellect preserves the __name__ attribute.
+- PyIntellect preserves the __name\_\_ attribute.
 - PyIntellect obfuscated files have a significant speed boost compared to other obfuscators.
 
 ## Supported Python Versions
