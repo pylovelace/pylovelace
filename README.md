@@ -6,6 +6,8 @@ The usage will be via a command line interface.
 - CPythonic engine (to be improved)
 - Single file obfuscation (currently limited to 5kb files until licenses are implemented)
 - Module obfuscation (currently limited to 5kb files until licenses are implemented)
+- Remove all comments
+- Turn comments starting with `# pyintellect` into code. E.g. `# pyintellect print("test")` turns into `print("test")`.
 
 ## Planned Features
 - Multiple modes of obfuscation (single file, with modules, etc.)
