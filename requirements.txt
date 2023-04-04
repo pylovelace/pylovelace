@@ -1,0 +1,4 @@
+requests~=2.28.2
+tqdm~=4.65.0
+Cython~=0.29.34
+setuptools~=67.6.1
