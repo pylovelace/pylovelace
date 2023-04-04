@@ -9,11 +9,12 @@ The usage will be via a command line interface.
 - Remove all comments
 - Turn comments starting with `# pyintellect` into code. E.g. `# pyintellect print("test")` turns into `print("test")`.
 
-## Planned Features
+## Planned Features / To Do
 - Multiple modes of obfuscation (single file, with modules, etc.)
 - ~~Single file obfuscation will not change the file extension (e.g. .py -> .py), this way it can be run as a normal Python file.~~ Already implemented!
 - ~~Obfuscate and compile modules to .so or .pyd files. It will be possible to import and utilize these files as normal Python modules.~~ Already implemented!
 - Variable renaming, String encryption, Control flow, Function renaming (Partially implemented)
+- Anti Python debugger
 - Expire after a certain date
 - Affordable license price (one-time payment)
 - Only one license
