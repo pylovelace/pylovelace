@@ -5,11 +5,6 @@ from engine.configuration import *
 from engine.single_mode import SingleMode
 from engine.module_mode import ModuleMode
 
-# anti debug (pdb, pydev debugger)
-# def check_if_debug() -> Callable[[FrameType, str, Any], Callable[[FrameType, str, Any], Any] | None] | None:
-#     with suppress(AttributeError):
-#         return sys.gettrace()
-# if it's not none, then it runs in debug mode
 
 def _parse_args():
     """
