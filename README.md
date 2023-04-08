@@ -1,18 +1,19 @@
 # PyIntellect
-An upcoming CPythonic Python code obfuscation tool.
+A CPythonic Python code obfuscation tool.
 The usage will be via a command line interface.
 
 ## Already Implemented Features
-- CPythonic engine (to be improved)
+
 - Single file obfuscation (currently limited to 5kb files until licenses are implemented)
 - Module obfuscation (currently limited to 5kb files until licenses are implemented)
 - Remove all comments
+- Anti Python debugger
+- Anti importing debugging packages
+- Rename functions and classes
 - Turn comments starting with `# pyintellect` into code. E.g. `# pyintellect print("test")` turns into `print("test")`.
 
 ## Planned Features / To Do
 - Multiple modes of obfuscation (single file, with modules, etc.)
-- ~~Single file obfuscation will not change the file extension (e.g. .py -> .py), this way it can be run as a normal Python file.~~ Already implemented!
-- ~~Obfuscate and compile modules to .so or .pyd files. It will be possible to import and utilize these files as normal Python modules.~~ Already implemented!
 - Variable renaming, String encryption, Control flow, Function renaming (Partially implemented)
 - Anti Python debugger
 - Expire after a certain date
@@ -34,10 +35,9 @@ I am yet unsure if I will support older versions of Python.
 - Linux soon.
 
 ## Installation
-PyIntellect is not yet available for installation. 
-It will be available for installation once it is released.
 
-How it will be: `pip install pyintellect`
+PyIntellect can be installed via pip:
+`pip install pyintellect`
 
 ## Documentation
 Documentation will be available on the [PyIntellect website](https://pyintellect.com). The website is currently under development.
