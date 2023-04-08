@@ -33,19 +33,19 @@ setup(
         'Operating System :: Microsoft :: Windows :: Windows 11',
     ],
     packages=[
-        'source',
-        'source.core',
-        'source.core.cryptography'
+        'pyintellect',
+        'pyintellect.core',
+        'pyintellect.core.cryptography'
     ],
     package_dir={
         'pyintellect': 'source'
     },
     package_data={
         'pyintellect': [
-            'source/core/*.py',
-            'source/core/*.pyd',
-            'source/core/cryptography/*.py',
-            'source/core/cryptography/*.pyd'
+            'core/*.py',
+            'core/*.pyd',
+            'core/cryptography/*.py',
+            'core/cryptography/*.pyd'
         ]
     },
     entry_points={
