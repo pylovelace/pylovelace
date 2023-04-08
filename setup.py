@@ -32,8 +32,25 @@ setup(
         'Operating System :: Microsoft :: Windows :: Windows 10',
         'Operating System :: Microsoft :: Windows :: Windows 11',
     ],
-    packages=['pyintellect', 'pyintellect.core', 'pyintellect.core.cryptography'],
-    package_dir={'pyintellect': 'source'},
-    package_data={'pyintellect': ['core/*.py', 'core/*.pyd', 'core/cryptography/*.py', 'core/cryptography/*.pyd']},
-    entry_points={'console_scripts': ['pyintellect=pyintellect.pyintellect:main']}
+    packages=[
+        'source',
+        'source.core',
+        'source.core.cryptography'
+    ],
+    package_dir={
+        'pyintellect': 'source'
+    },
+    package_data={
+        'pyintellect': [
+            'source/core/*.py',
+            'source/core/*.pyd',
+            'source/core/cryptography/*.py',
+            'source/core/cryptography/*.pyd'
+        ]
+    },
+    entry_points={
+        'console_scripts': [
+            'pyintellect=pyintellect.pyintellect:main'
+        ]
+    }
 )
