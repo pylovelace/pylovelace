@@ -16,21 +16,22 @@ with open(path.join(directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='PyIntellect',
-    version="0.0.2",
+    version="0.0.3",
     description='Python code obfuscation tool',
     long_description=long_description,
     author='nshout',
     url='https://github.com/pyintellect/pyintellect',
     keywords='obfuscate obfuscation distribute production tool',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha"',
+        'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
         'Topic :: Utilities',
         'Topic :: Security',
         'Programming Language :: Python :: 3',
         'Operating System :: Microsoft :: Windows',
     ],
-    packages=['pyintellect'],
+    packages=['pyintellect', 'pyintellect.core', 'pyintellect.core.cryptography'],
     package_dir={'pyintellect': 'source'},
+    package_data={'pyintellect': ['core/*.py', 'core/*.pyd', 'core/cryptography/*.py', 'core/cryptography/*.pyd']},
     entry_points={'console_scripts': ['pyintellect=pyintellect.pyintellect:main']}
 )
