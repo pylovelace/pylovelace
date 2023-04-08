@@ -1,9 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+PyIntellect
+Python Obfuscation Tool
+
+Copyright 2023 PyIntellect
+
+Author - nshout
+"""
 import argparse
-import os
 import sys
-from engine.configuration import *
-from engine.single_mode import SingleMode
-from engine.module_mode import ModuleMode
+import core
 
 
 def _parse_args():
@@ -13,7 +19,7 @@ def _parse_args():
     """
     parse = argparse.ArgumentParser(
         prog='PyIntellect',
-        description='Pro License (Alpha State)',
+        description='Free License (Alpha State)',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         usage='%(prog)s [options]',
         epilog='''\
@@ -26,7 +32,7 @@ More information:
         "-v",
         "--version",
         action="version",
-        version=f"%(prog)s {version}"
+        version=f"%(prog)s {core.version}"
     )
 
     parse.add_argument(
@@ -39,32 +45,36 @@ More information:
     obfuscation_parser = parse.add_argument_group(
         "Obfuscation",
         "(*) = Recommended\n"
-        "(β) = Beta (Testing, not recommended)\n"
-        "(α) = Alpha (Development, not recommended, might get removed)\n"
+        "(β) = Beta\n"
+        "(α) = Alpha\n"
     )
 
     obfuscation_parser.add_argument(
         "-o",
         "--obfuscate",
         action="store",
-        help="The file to obfuscate and download the required runtime module.",
+        help="The file to obfuscate and download the required runtime module",
         metavar="FILE"
     )
 
     obfuscation_parser.add_argument(
         "--mode",
         action="store",
-        choices=["1", "2"],
+        choices=["1"],
         default="1",
-        help="Obfuscation modes. \n"
-             "1 - One file (Most secure), "
-             "2 - Initiation file and all modules get obfuscated and modules get compiled."
+        help="Obfuscation category"
     )
 
     obfuscation_parser.add_argument(
         "--module",
         action="store_true",
         help="Obfuscate and compile a module"
+    )
+
+    obfuscation_parser.add_argument(
+        "--rename",
+        action="store_true",
+        help="Rename functions and classes (β)"
     )
 
     obfuscation_parser.add_argument(
@@ -76,32 +86,20 @@ More information:
     obfuscation_parser.add_argument(
         "--anti-module",
         action="store_true",
-        help="Anti debugger modules (β)"
-    )
-
-    obfuscation_parser.add_argument(
-        "--anti-injection",
-        action="store_true",
-        help="Kernel injection check (α)"
-    )
-
-    obfuscation_parser.add_argument(
-        "--anti-breakpoint",
-        action="store_true",
-        help="Kernel breakpoint check (α)"
+        help="Anti debugger modules (*)"
     )
 
     obfuscation_parser.add_argument(
         "--delay",
         action="store",
         default=1,
-        help="Check delay in seconds, default is 1"
+        help="Check delay in seconds (Default: 1)"
     )
 
     obfuscation_parser.add_argument(
         "--output",
         action="store",
-        help="Output directory"
+        help="Output directory (Not implemented yet)"
     )
 
     registration_parser = parse.add_argument_group(
@@ -112,7 +110,7 @@ More information:
         "-r",
         "--register",
         action="store",
-        help="Register your license",
+        help="Register your license (Not implemented yet)",
         metavar="LICENSE"
     )
 
@@ -132,19 +130,17 @@ def _parse(initialized_arguments):
 
     if arguments.obfuscate:
         if arguments.module:
-            ModuleMode(
-                file=arguments.obfuscate,
-                anti_debug=arguments.anti_debug,
-                anti_module=arguments.anti_module,
-                anti_injection=arguments.anti_injection,
-                anti_breakpoint=arguments.anti_breakpoint,
+            core.ModuleMode(
+                file=arguments.obfuscate
             ).generate()
         elif arguments.mode == "1":
-            SingleMode(
-                arguments.obfuscate
+            core.SingleMode(
+                arguments.obfuscate,
+                anti_debug=arguments.anti_debug,
+                anti_module=arguments.anti_module,
+                delay=arguments.delay,
+                rename=arguments.rename,
             ).generate()
-        elif arguments.mode == "2":
-            raise NotImplementedError("Multi-mode obfuscation is not implemented yet.")
 
 
 def main():
@@ -153,7 +149,7 @@ def main():
     :return:
     """
     print(
-        f"PyIntellect v{version}\n"
+        f"PyIntellect v{core.version}\n"
         f"Python v{sys.version.split()[0]} (Supported)\n"
     )
     _parse(sys.argv[1:])
