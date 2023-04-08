@@ -8,7 +8,6 @@ Author - nshout
 """
 from setuptools import setup
 from os import path
-from source.core import version
 
 directory = path.abspath(path.dirname(__file__))
 
@@ -17,7 +16,7 @@ with open(path.join(directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='PyIntellect',
-    version=version,
+    version="0.0.4",
     description='Python code obfuscation tool',
     long_description=long_description,
     author='nshout',
