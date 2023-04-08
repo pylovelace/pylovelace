@@ -24,7 +24,7 @@ setup(
     url='https://github.com/pyintellect/pyintellect',
     keywords='obfuscate obfuscation distribute production tool',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Topic :: Utilities',
         'Topic :: Security',
