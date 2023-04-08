@@ -1,7 +1,7 @@
 """
 This file contains the configuration.
 """
-version = "0.0.6"
+version = "0.0.7"
 
 docstring = f'''"""
 PyIntellect
