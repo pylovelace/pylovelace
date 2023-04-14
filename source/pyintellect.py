@@ -17,92 +17,32 @@ def _parse_args():
     Parse arguments
     :return:
     """
-    parse = argparse.ArgumentParser(
+    parser = argparse.ArgumentParser(
         prog='PyIntellect',
         description='Free License (Alpha State)',
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        usage='%(prog)s [options]',
+        usage='pyintellect [options]',
         epilog='''\
 More information:
     https://pyintellect.com
 '''
     )
 
-    parse.add_argument(
+    parser.add_argument(
         "-v",
         "--version",
         action="version",
         version=f"%(prog)s {core.version}"
     )
 
-    parse.add_argument(
+    parser.add_argument(
         "-d",
         "--debug",
         action="store_true",
         help="Enable debug mode"
     )
 
-    obfuscation_parser = parse.add_argument_group(
-        "Obfuscation",
-        "(*) = Recommended\n"
-        "(β) = Beta\n"
-        "(α) = Alpha\n"
-    )
-
-    obfuscation_parser.add_argument(
-        "-o",
-        "--obfuscate",
-        action="store",
-        help="The file to obfuscate and download the required runtime module",
-        metavar="FILE"
-    )
-
-    obfuscation_parser.add_argument(
-        "--mode",
-        action="store",
-        choices=["1"],
-        default="1",
-        help="Obfuscation category"
-    )
-
-    obfuscation_parser.add_argument(
-        "--module",
-        action="store_true",
-        help="Obfuscate and compile a module"
-    )
-
-    obfuscation_parser.add_argument(
-        "--rename",
-        action="store_true",
-        help="Rename functions and classes (β)"
-    )
-
-    obfuscation_parser.add_argument(
-        "--anti-debug",
-        action="store_true",
-        help="Python debugger check (*)"
-    )
-
-    obfuscation_parser.add_argument(
-        "--anti-module",
-        action="store_true",
-        help="Anti debugger modules (*)"
-    )
-
-    obfuscation_parser.add_argument(
-        "--delay",
-        action="store",
-        default=1,
-        help="Check delay in seconds (Default: 1)"
-    )
-
-    obfuscation_parser.add_argument(
-        "--output",
-        action="store",
-        help="Output directory (Not implemented yet)"
-    )
-
-    registration_parser = parse.add_argument_group(
+    registration_parser = parser.add_argument_group(
         "Registration",
     )
 
@@ -114,7 +54,144 @@ More information:
         metavar="LICENSE"
     )
 
-    return parse
+    subparser = parser.add_subparsers(
+        title="Categories",
+        metavar="",
+    )
+
+    protection_parser(subparser)
+
+    return parser
+
+
+def protection_parser(subparser):
+    """---------------------------------------------------------------------------------
+Protect the given file with PyIntellect.
+    usage: pyintellect protect [options] FILE
+
+To protect a module that gets compiled with PyIntellect, use the --module option.
+    usage: pyintellect protect --module [options] FILE
+---------------------------------------------------------------------------------
+(*) = Recommended
+(β) = Beta
+(α) = Alpha
+---------------------------------------------------------------------------------"""
+    parser = subparser.add_parser(
+        "protect",
+        aliases=["p", "protection"],
+        help="Manage protection and runtime modules",
+        description=protection_parser.__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        usage='pyintellect protect [options] FILE',
+        epilog='''\
+More information:
+    https://pyintellect.com
+'''
+    )
+
+    parser.add_argument(
+        "-o",
+        "--output",
+        action="store",
+        help="Output directory",
+        metavar="PATH"
+    )
+
+    protect_parser = parser.add_argument_group(
+        "Protection Options",
+    )
+
+    protect_parser.add_argument(
+        "--mode",
+        action="store",
+        choices=["1"],
+        default="1",
+        help="""
+        Protection/Obfuscation mode
+        (1 = Standard mode)
+        """
+    )
+
+    protect_parser.add_argument(
+        "--hook",
+        action="store_true",
+        help="Hook the protected file against changes",
+        default=True,
+    )
+
+    protect_parser.add_argument(
+        "--hook-imports",
+        action="store_true",
+        help="Hook all imports",
+        default=False,
+    )
+
+    protect_parser.add_argument(
+        "--block-imports",
+        action="store_true",
+        help="Block importing of not obfuscated modules",
+        default=False,
+    )
+
+    protect_parser.add_argument(
+        "--rename",
+        action="store_true",
+        help="Rename functions and classes",
+        default=False,
+    )
+
+    protect_parser.add_argument(
+        "--anti-debug",
+        action="store_true",
+        help="Python debugger check (*)"
+    )
+
+    protect_parser.add_argument(
+        "--anti-module",
+        action="store_true",
+        help="Anti debugger modules (*)"
+    )
+
+    protect_parser.add_argument(
+        "--delay",
+        action="store",
+        default=1,
+        help="(--anti) Check delay in seconds (Default: 1)",
+        metavar="SECONDS"
+    )
+
+    removal_parser = parser.add_argument_group(
+        "Removal Options",
+    )
+
+    removal_parser.add_argument(
+        "--remove-docstrings",
+        action="store_true",
+        help="Remove docstrings",
+        default=False,
+    )
+
+    removal_parser.add_argument(
+        "--remove-comments",
+        action="store_true",
+        help="Remove comments (*)",
+        default=False,
+    )
+
+    special_parser = parser.add_argument_group(
+        "Special Options",
+    )
+
+    special_parser.add_argument(
+        "--module",
+        action="store_true",
+        help="Compile a module",
+        default=False,
+    )
+
+    if len(sys.argv) == 2:
+        parser.print_help()
+        sys.exit(1)
 
 
 def _parse(initialized_arguments):

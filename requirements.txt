@@ -3,3 +3,5 @@ tqdm
 Cython
 setuptools
 colorama
+pycryptodome
+pywin32
