@@ -37,5 +37,5 @@ PyIntellect can be installed via pip:
 Documentation will be available on the [PyIntellect website](https://pyintellect.com). The website is currently under development.
 
 ## License
-PyIntellect can be purchased over at: https://pyintellect.sell.app/product/pyintellect
+A license for PyIntellect can be purchased [here](https://pyintellect.sell.app/product/pyintellect).
 PyIntellect can be used without a license, but a 5KB file limit will apply.
