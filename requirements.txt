@@ -5,3 +5,4 @@ setuptools
 colorama
 pycryptodome
 pywin32
+pwinput

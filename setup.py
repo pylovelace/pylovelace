@@ -35,17 +35,27 @@ setup(
     packages=[
         'pyintellect',
         'pyintellect.core',
-        'pyintellect.core.cryptography'
+        'pyintellect.core.authentication',
+        'pyintellect.core.authentication.cryptography'
     ],
     package_dir={
-        'pyintellect': 'source'
+        'pyintellect': 'source',
+        'pyintellect.core': 'source/core',
+        'pyintellect.core.authentication': 'source/core/authentication',
+        'pyintellect.core.authentication.cryptography': 'source/core/authentication/cryptography'
     },
     package_data={
         'pyintellect': [
             'core/*.py',
             'core/*.pyd',
-            'core/cryptography/*.py',
-            'core/cryptography/*.pyd'
+        ],
+        'pyintellect.core': [
+            'authentication/*.py',
+            'authentication/*.pyd',
+        ],
+        'pyintellect.core.authentication': [
+            'cryptography/*.py',
+            'cryptography/*.pyd',
         ]
     },
     entry_points={
