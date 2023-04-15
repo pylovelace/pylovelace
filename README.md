@@ -1,9 +1,8 @@
 # PyIntellect
-A CPythonic Python code obfuscation tool.
+A Python code obfuscation tool.
 The usage will be via a command line interface.
 
 ## Features
-
 - Single file obfuscation (currently limited to 5kb files until licenses are implemented)
 - Module obfuscation (currently limited to 5kb files until licenses are implemented)
 - Remove all comments
