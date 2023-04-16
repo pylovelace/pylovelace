@@ -3,8 +3,8 @@ A Python code obfuscation tool.
 The usage will be via a command line interface.
 
 ## Features
-- Single file obfuscation (currently limited to 5kb files until licenses are implemented)
-- Module obfuscation (currently limited to 5kb files until licenses are implemented)
+- Single file obfuscation
+- Module obfuscation
 - Remove all comments
 - Anti Python debugger
 - Anti importing debugging packages
