@@ -16,7 +16,7 @@ with open(path.join(directory, 'source', 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='PyLovelace',
+    name='pylovelace',
     version=__version__,
     description=__description__,
     long_description=long_description,
@@ -44,10 +44,7 @@ setup(
         ]
     },
     install_requires=[
-        'pylovelace.kernel',
-        'cryptography',
-        'requests',
-        'tqdm',
+        'pylovelace.kernel'
     ],
     setup_requires=[
         'wheel'
