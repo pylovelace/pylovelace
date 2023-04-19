@@ -11,7 +11,7 @@ import logging
 import os
 import shutil
 
-from kernel import PyLovelace, get_runtime_module, protect_code, compile_module, finalize
+from .kernel import PyLovelace, get_runtime_module, protect_code, compile_module, finalize
 
 logging.basicConfig(
     level=logging.DEBUG,

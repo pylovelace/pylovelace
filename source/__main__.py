@@ -11,8 +11,8 @@ import argparse
 import os
 import getpass
 
-from kernel import lovelace, validate
-from protect import SingleMode
+from .kernel import lovelace, validate
+from .protect import SingleMode
 from secrets import compare_digest
 
 
@@ -20,11 +20,11 @@ def protection_parser(subparser):
     """--------------------------------------------------------------------------------
 most common commands:
 
-protect the given file with pyintellect.
-    usage: pyintellect protect [options] file
+protect the given file with pylovelace.
+    usage: pylovelace protect [options] file
 
-to protect a module that gets compiled with pyintellect, use the --module option
-    usage: pyintellect protect --module [options] file
+to protect a module that gets compiled with pylovelace, use the --module option
+    usage: pylovelace protect --module [options] file
 --------------------------------------------------------------------------------
 (*) = recommended
 (β) = beta
@@ -38,7 +38,7 @@ to protect a module that gets compiled with pyintellect, use the --module option
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog='''\
 more information:
-    https://pyintellect.com
+    https://pylovelace.com
 '''
     )
     parser.add_argument(
@@ -145,24 +145,24 @@ more information:
 
 def authentication_parser(subparser):
     """---------------------------------------------------------------------------------
-authenticate your pyintellect license if you never did before.
-    usage: pyintellect authenticate --register
+authenticate your pylovelace license if you never did before.
+    usage: pylovelace authenticate --register
 
     this will ask you for a license, username and password to register.
 
-log in to your pyintellect account.
-    usage: pyintellect authenticate --login
+log in to your pylovelace account.
+    usage: pylovelace authenticate --login
 
     this will ask you for your username and password and activate your device.
 ---------------------------------------------------------------------------------"""
     parser = subparser.add_parser(
         'authenticate',
-        help="manage authentication and PyIntellect license",
+        help="manage authentication and PyLovelace license",
         description=authentication_parser.__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog='''\
 more information:
-    https://pyintellect.com
+    https://pylovelace.com
 '''
     )
 
@@ -181,7 +181,7 @@ more information:
     parser.add_argument(
         '--buy',
         action='store_true',
-        help='redirect to the PyIntellect store to buy a license'
+        help='redirect to the PyLovelace store to buy a license'
     )
 
     return parser
@@ -296,7 +296,7 @@ def main():
     subparser = parser.add_subparsers(
         title='categories',
         dest='category',
-        description='usage: pyintellect <category>'
+        description='usage: pylovelace <category>'
     )
 
     protection_parser(subparser)
