@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 """
-PyIntellect
-Python Obfuscation Tool
+PyLovelace
+Copyright (c) 2023 PyLovelace
+All rights reserved.
 
-Copyright 2023 PyIntellect
-
-Author - nshout
+@Author: nshout
+@File: __main__.py
 """
 import argparse
 import os
-import sys
-import core
-import pwinput
+import getpass
 
-from core.authentication import PyIntellectAuthentication
+from kernel import lovelace, validate
+from protect import SingleMode
+from secrets import compare_digest
 
 
 def protection_parser(subparser):
@@ -125,12 +125,6 @@ more information:
     )
 
     removal_parser.add_argument(
-        "--remove-docstrings",
-        action="store_true",
-        help="remove docstrings",
-    )
-
-    removal_parser.add_argument(
         "--remove-comments",
         action="store_true",
         help="remove comments (*)",
@@ -197,8 +191,7 @@ def version():
     """
     Print version and license information
     """
-    auth = PyIntellectAuthentication()
-    print(auth.get_info())
+    print(validate(v=True))
 
 
 def main_parser(
@@ -225,10 +218,9 @@ def main_parser(
                 args.module,
                 args.hook,
                 args.remove_comments,
-                args.remove_docstrings,
-                args.verbose,
+                args.verbose
             )
-        core.SingleMode(
+        SingleMode(
             file=args.file,
             clean=args.clean,
             anti_debug=args.anti_debug,
@@ -239,40 +231,41 @@ def main_parser(
             module=args.module,
             hook=args.hook,
             remove_comments=args.remove_comments,
-            remove_docstrings=args.remove_docstrings,
             debug=args.verbose,
         ).generate()
     elif args.category == 'authenticate':
         if args.login:
             username = input('username: ')
-            password = pwinput.pwinput('password: ')
+            password = getpass.getpass('password: ')
 
-            auth = PyIntellectAuthentication()
-            auth.login(
-                username=username,
-                password=password
-            )
+            auth = lovelace._PyLovelaceAdaEngine()
+            if auth.login(
+                    username=username,
+                    password=password,
+                    home=True
+            ) is True:
+                print('successfully logged in')
 
         elif args.register:
             username = input('username: ')
-            password = pwinput.pwinput('password: ')
-            repeat_password = pwinput.pwinput('repeat password: ')
-            if password != repeat_password:
+            password = getpass.getpass('password: ')
+            repeat_password = getpass.getpass('repeat password: ')
+            if not compare_digest(password, repeat_password):
                 print('passwords do not match')
                 return
             license = input('license: ')
 
-            auth = PyIntellectAuthentication()
+            auth = lovelace._PyLovelaceAdaEngine()
             if auth.register(
                     username=username,
                     password=password,
-                    pyintellect_license=license
-            ):
+                    pylovelace_license=license
+            ) is True:
                 print('you can now log in with your credentials')
 
         elif args.buy:
-            os.system('start https://pyintellect.sell.app/product/pyintellect')
-            print('opened https://pyintellect.sell.app/product/pyintellect in the browser')
+            os.system('start https://pyintellect.sell.app/product/pylovelace')
+            print('opened https://pyintellect.sell.app/product/pylovelace in the browser')
         else:
             authenticate_parser.print_help()
     else:
@@ -284,10 +277,6 @@ def main():
     Main function
     :return:
     """
-    print(
-        f"PyIntellect {core.version}\n"
-        f"Python {sys.version.split()[0]}\n"
-    )
     parser = argparse.ArgumentParser(
     )
 
@@ -310,11 +299,10 @@ def main():
         description='usage: pyintellect <category>'
     )
 
-    protect_parser = protection_parser(subparser)
-    authenticate_parser = authentication_parser(subparser)
+    protection_parser(subparser)
     main_parser(
         parser=parser,
-        authenticate_parser=authenticate_parser
+        authenticate_parser=authentication_parser(subparser)
     )
 
 

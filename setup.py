@@ -8,59 +8,53 @@ Author - nshout
 """
 from setuptools import setup
 from os import path
-from source.core import version
+from source import __version__, __description__
 
 directory = path.abspath(path.dirname(__file__))
 
-with open(path.join(directory, 'README.md'), encoding='utf-8') as f:
+with open(path.join(directory, 'source', 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='PyIntellect',
-    version=version,
-    description='Python code obfuscation tool',
+    name='PyLovelace',
+    version=__version__,
+    description=__description__,
     long_description=long_description,
     author='nshout',
-    url='https://github.com/pyintellect/pyintellect',
+    url='https://github.com/pylovelace/pylovelace',
     keywords='obfuscate obfuscation distribute production tool',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Topic :: Utilities',
         'Topic :: Security',
-        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.11',
         'Operating System :: Microsoft :: Windows :: Windows 10',
         'Operating System :: Microsoft :: Windows :: Windows 11',
     ],
     packages=[
-        'pyintellect',
-        'pyintellect.core',
-        'pyintellect.core.authentication',
-        'pyintellect.core.authentication.cryptography'
+        'pylovelace',
     ],
     package_dir={
-        'pyintellect': 'source',
-        'pyintellect.core': 'source/core',
-        'pyintellect.core.authentication': 'source/core/authentication',
-        'pyintellect.core.authentication.cryptography': 'source/core/authentication/cryptography'
+        'pylovelace': 'source',
     },
     package_data={
-        'pyintellect': [
-            'core/*.py',
-            'core/*.pyd',
-        ],
-        'pyintellect.core': [
-            'authentication/*.py',
-            'authentication/*.pyd',
-        ],
-        'pyintellect.core.authentication': [
-            'cryptography/*.py',
-            'cryptography/*.pyd',
+        'pylovelace': [
+            '*.py',
         ]
     },
+    install_requires=[
+        'pylovelace.kernel',
+        'cryptography',
+        'requests',
+        'tqdm',
+    ],
+    setup_requires=[
+        'wheel'
+    ],
     entry_points={
         'console_scripts': [
-            'pyintellect=pyintellect.pyintellect:main'
+            'pylovelace=pylovelace.__main__:main'
         ]
     }
 )

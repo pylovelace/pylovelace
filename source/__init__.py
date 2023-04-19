@@ -1,7 +1,12 @@
+# -*- coding: utf-8 -*-
 """
-__init__.py
-"""
-import sys
-from os.path import abspath, dirname
+PyLovelace
+Copyright (c) 2023 PyLovelace
+All rights reserved.
 
-sys.path.insert(0, abspath(dirname(__file__)))
+@Author: nshout
+@File: __init__.py
+"""
+
+__version__ = "2023.1.1"
+__description__ = "Python code protection/obfuscation tool"

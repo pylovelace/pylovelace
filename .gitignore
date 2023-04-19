@@ -125,4 +125,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 /.idea/
-/source/testing/
+/source-deprecated/testing/
+/source/kernel/
