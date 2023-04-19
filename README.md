@@ -5,7 +5,6 @@ PyLovelace, a Python obfuscation tool, named in honor of Ada Lovelace, bestows a
 
 ## Features <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.discordapp.com/attachments/1043193068641341541/1098333824104026168/code2.png"><source media="(prefers-color-scheme: light)" srcset="https://cdn.discordapp.com/attachments/1043193068641341541/1098333824104026168/code2.png"><img align="left" valign="center" height="180" src="https://cdn.discordapp.com/attachments/1043193068641341541/1098333824104026168/code2.png" alt="pylovelace code" /></picture>
 
-## Features
 - PyLovelace offers single file and module obfuscation, comment removal, anti-debugging features, and function/class renaming.
 - PyLovelace can convert # pylovelace comments into executable code.
 - PyLovelace can be used without a license, but files over 5KB will require a purchased license.
