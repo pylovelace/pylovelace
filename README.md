@@ -1,4 +1,4 @@
-# PyLovelace
+# PyLovelace <picture><img align="right" valign="center" height="180" src="https://cdn.discordapp.com/attachments/1038943890234945576/1098148990899462154/pngwing.com.png" alt="PyLovelace logo" /></picture>
 A Python code obfuscation tool.
 The usage will be via a command line interface.
 
