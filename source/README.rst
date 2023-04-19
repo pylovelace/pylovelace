@@ -26,5 +26,5 @@ Windows only for now.
 More information
 ----------------
 - PyLovelace on PyPI: https://pypi.org/project/pylovelace/
-- PyLovelace on GitHub: https://github.com/pyintellect/pylovelace
+- PyLovelace on GitHub: https://github.com/pylovelace/pylovelace
 - PyLovelace documentation: https://pylovelace.com/docs/
