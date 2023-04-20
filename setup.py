@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 """
-PyIntellect
-Python Obfuscation Tool
+PyLovelace
+Copyright (c) 2023 PyLovelace
+All rights reserved.
 
-Copyright 2023 PyIntellect
-
-Author - nshout
+@Author: nshout
+@File: setup.py
 """
 from setuptools import setup
 from os import path
@@ -28,7 +29,9 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Utilities',
         'Topic :: Security',
+        'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
         'Operating System :: Microsoft :: Windows :: Windows 10',
         'Operating System :: Microsoft :: Windows :: Windows 11',
     ],
@@ -44,7 +47,7 @@ setup(
         ]
     },
     install_requires=[
-        'pylovelace.kernel >=0'
+        'pylovelace.kernel > 2023.1.2',
     ],
     setup_requires=[
         'wheel'
@@ -53,5 +56,6 @@ setup(
         'console_scripts': [
             'pylovelace=pylovelace.__main__:main'
         ]
-    }
+    },
+    python_requires='>=3.10, <3.13',
 )
