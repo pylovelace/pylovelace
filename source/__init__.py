@@ -8,5 +8,5 @@ All rights reserved.
 @File: __init__.py
 """
 
-__version__ = "2023.1.4"
+__version__ = "2023.1.5"
 __description__ = "Python code protection/obfuscation tool"
