@@ -25,7 +25,7 @@ setup(
     url='https://github.com/pylovelace/pylovelace',
     keywords='obfuscate obfuscation distribute production tool',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Topic :: Utilities',
         'Topic :: Security',
@@ -34,6 +34,7 @@ setup(
         'Programming Language :: Python :: 3.12',
         'Operating System :: Microsoft :: Windows :: Windows 10',
         'Operating System :: Microsoft :: Windows :: Windows 11',
+        'Operating System :: POSIX :: Linux'
     ],
     packages=[
         'pylovelace',
@@ -47,7 +48,7 @@ setup(
         ]
     },
     install_requires=[
-        'pylovelace.kernel > 2023.1.4',
+        'pylovelace.kernel >= 2023.2.0',
     ],
     setup_requires=[
         'wheel'

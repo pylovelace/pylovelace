@@ -10,6 +10,7 @@ All rights reserved.
 import logging
 import os
 import shutil
+import platform
 
 from .kernel import PyLovelace, get_runtime_module, protect_code, compile_module, finalize
 
@@ -132,7 +133,11 @@ class SingleMode:
             os.makedirs(os.path.join(output_dir, "pylovelace_runtime"), exist_ok=True)
 
         runtime_folder = os.path.join(output_dir, "pylovelace_runtime")
-        get_runtime_module(os.path.join(runtime_folder, "pylovelace_runtime.pyd"))
+
+        if platform.system() == 'Windows':
+            get_runtime_module(os.path.join(runtime_folder, "pylovelace_runtime.pyd"))
+        else:
+            get_runtime_module(os.path.join(runtime_folder, "pylovelace_runtime.so"))
 
         with open(os.path.join(runtime_folder, "__init__.py"), "w") as f:
             f.write('''"""
