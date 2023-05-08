@@ -48,7 +48,7 @@ setup(
         ]
     },
     install_requires=[
-        'pylovelace.kernel >= 2023.2.0',
+        'pylovelace.kernel >= 2023.3.0',
     ],
     setup_requires=[
         'wheel'
