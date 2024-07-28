@@ -1,4 +1,4 @@
-# PyLovelace <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.discordapp.com/attachments/1038943890234945576/1098148990899462154/pngwing.com.png"><source media="(prefers-color-scheme: light)" srcset="https://cdn.discordapp.com/attachments/1038943890234945576/1098148990899462154/pngwing.com.png"><img align="right" valign="center" height="180" src="https://cdn.discordapp.com/attachments/1038943890234945576/1098148990899462154/pngwing.com.png" alt="pylovelace logo" /></picture>
+# PyLovelace (Currently on hold) <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.discordapp.com/attachments/1038943890234945576/1098148990899462154/pngwing.com.png"><source media="(prefers-color-scheme: light)" srcset="https://cdn.discordapp.com/attachments/1038943890234945576/1098148990899462154/pngwing.com.png"><img align="right" valign="center" height="180" src="https://cdn.discordapp.com/attachments/1038943890234945576/1098148990899462154/pngwing.com.png" alt="pylovelace logo" /></picture>
 
 Now on Discord! Support and
 announcements: [Join the server](https://discord.gg/XrDArwukEE)
